@@ -1,0 +1,25 @@
+
+1、vim中使用u退回上一步
+2、使用cat读取文件内容并显示在屏幕上
+3、vim + filename 表示把光标定位到文件最后一行
+4、vim +数字 filemame 定位到数字行，如果超过文件行数，定位到最后一行
+5、vim +/word filename 定位到Word第一次出现的行，按n切换
+6、vim file1 file2 file3 一次性打开或者创建多个文件，底行模式下使用:n向后切换文件，:N和prev向前切换文件
+7、:w  save
+:q  quit
+:!  强制
+:ls   列出当前编辑器打开的所有文件
+:n 切换到下一个文件
+:N 切换到前一个文件
+:15 定位到15行
+:/xxx 表示从光标位置向后搜索xxx,定位到第一次出现的时候
+:?xxx搜索
+8、命令行模式常用命令
+h 光标左移
+j 光标下移
+k 光标上移
+l 光标右移
+Ctrl+f 向下翻页（front）
+Ctrl+b 向上翻页（back）
+Ctrl+d 向下翻半页（down）
+Ctrl+u 向上翻半页（up）
