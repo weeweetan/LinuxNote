@@ -1,0 +1,18 @@
+#!/bin/bash
+SCRIPT_PATH="/etc/sysconfig/network-scripts/ifcfg-${1}"
+
+UUID=$(uuidgen ${1})
+
+echo "DEVICE=${1}">>${SCRIPT_PATH}
+echo "HWADDR=${2}">>${SCRIPT_PATH}
+echo "TYPE=Ethernet">>${SCRIPT_PATH}
+echo "UUID=${UUID}">>${SCRIPT_PATH}
+echo "ONBOOT=yes">>${SCRIPT_PATH}
+echo "NM_CONTROLLED=yes">>${SCRIPT_PATH}
+echo "BOOTPROTO=none">>${SCRIPT_PATH}
+echo "IPADDR=${3}">>${SCRIPT_PATH}
+echo "NETMASK=${4}">>${SCRIPT_PATH}
+echo "GATEWAY= ">>${SCRIPT_PATH}
+echo "DNS1= ">>${SCRIPT_PATH}
+echo "IPV6INIT=no">>${SCRIPT_PATH}
+echo "USERCTL=no">>${SCRIPT_PATH}
