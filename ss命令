@@ -1,0 +1,13 @@
+ss – 网络统计
+
+ss 命令用于获取套接字统计信息。它可以显示类似于 netstat 的信息。不过 netstat 几乎要过时了，ss 命令更具优势。要显示所有 TCP 或 UDP 套接字：
+
+# ss -t -a
+ 
+或
+
+# ss -u -a
+ 
+显示所有带有 SELinux 安全上下文Security Context的 TCP 套接字：
+
+# ss -t -a -Z
