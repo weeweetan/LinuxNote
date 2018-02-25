@@ -1,0 +1,4 @@
+mpstat – 监控多处理器的使用情况
+mpstat 命令显示每个可用处理器的使用情况，编号从 0 开始。命令 mpstat -P ALL 显示了每个处理器的平均使用率：
+
+# mpstat -P ALL
