@@ -1,0 +1,66 @@
+显示长输出格式
+
+# ps -Al
+ 
+显示完整输出格式（它将显示传递给进程的命令行参数）
+
+# ps -AlF
+ 
+显示线程（轻量级进程（LWP）和线程的数量（NLWP））
+
+# ps -AlFH
+ 
+在进程后显示线程
+
+# ps -AlLm
+ 
+显示系统上所有的进程
+
+# ps ax
+# ps aux
+
+显示进程树
+
+# ps -ejH
+# ps axjf
+# pstree
+
+显示进程的安全信息
+
+# ps -eo euser,ruser,suser,fuser,f,comm,label
+# ps axZ
+# ps -eM
+
+显示指定用户（如 vivek）运行的进程
+
+# ps -U vivek -u vivek u
+ 
+设置用户自定义的输出格式
+
+# ps -eo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm
+# ps axo stat,euid,ruid,tty,tpgid,sess,pgrp,ppid,pid,pcpu,comm
+# ps -eopid,tt,user,fname,tmout,f,wchan
+
+显示某进程（如 lighttpd）的 PID
+
+# ps -C lighttpd -o pid=
+ 
+或
+
+# pgrep lighttpd
+ 
+或
+
+# pgrep -u vivek php-cgi
+ 
+显示指定 PID（如 55977）的进程名称
+
+# ps -p 55977 -o comm=
+ 
+找出占用内存资源最多的前 10 个进程
+
+# ps -auxf | sort -nr -k 4 | head -10
+ 
+找出占用 CPU 资源最多的前 10 个进程
+
+# ps -auxf | sort -nr -k 3 | head -10
