@@ -1,0 +1,5 @@
+高亮搜索关键字
+step1:修改~/.bashrc，在~/.bashrc中添加如下内容
+alias grep='grep --color=auto'
+step2:重新加载.bashrc文件
+source ~/.bashrc
