@@ -1,0 +1,17 @@
+for循环一般格式为：
+
+for var in item1 item2 ... itemN
+do
+    command1
+    command2
+    ...
+    commandN
+done
+写成一行：
+
+for var in item1 item2 ... itemN; do command1; command2… done;
+当变量值在列表里，for循环即执行一次所有命令，使用变量名获取列表中的当前取值。命令可为任何有效的shell命令和语句。in列表可以包含替换、字符串和文件名。
+
+in列表是可选的，如果不用它，for循环使用命令行的位置参数。
+
+for option #这是shell脚本的一个特点,for 后面可以省略要遍历的变量,这时,表示在遍历$@,即用户传入的所有变量组合
