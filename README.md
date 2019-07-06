@@ -1,2 +1,2 @@
 # LinuxNote
-记录学习Linux的一些笔记
+记录学习linux时的一些脚本
