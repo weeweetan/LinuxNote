@@ -1,1 +1,1 @@
-启动后台进程 nohup xxx &
+启动后台进程 nohup xxx &>/dev/null &
