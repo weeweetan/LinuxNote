@@ -1,3 +1,4 @@
 #查看进程热点
 perf top -p
-
+#查看进程热点，显示堆栈
+perf top -g -p 
