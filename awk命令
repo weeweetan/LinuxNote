@@ -1,2 +1,3 @@
-awk命令
+#awk命令
+#以逗号分隔
 cat xx.file｜awk -F',' '{print $2}'
