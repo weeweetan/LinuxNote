@@ -3,3 +3,5 @@
 cat xx.file｜awk -F',' '{print $2}'
 #累加
 cat xx.file ｜ awk '{print $12}'| awk '{sum += $1} END {print sum}'
+##平均值
+cat xx.file ｜ awk '{print $12}'| awk '{sum += $1} END {print sum/NR}'
