@@ -1,1 +1,2 @@
+#实例1：每1分钟执行一次myCommand
 * * * * * myCommand
