@@ -1,0 +1,2 @@
+## truncate命令用于清空文件内容，但是清空大文件时，其他进程对大文件进行写的时候要获取锁，会等待truncate执行完成
+truncate --size 0 filename
