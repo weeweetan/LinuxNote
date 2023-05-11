@@ -1,1 +1,2 @@
-ss命令查看连接的socket
+#ss命令查看连接的socket
+ss -na
