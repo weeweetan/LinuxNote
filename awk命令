@@ -1,5 +1,5 @@
 #awk命令
-#以逗号分隔，默认是空格或者tab键，下标从1开始
+#以逗号分隔，默认是空格或者tab键，下标从1开始，0打印整行
 cat xx.file｜awk -F',' '{print $2}'
 #累加
 cat xx.file ｜ awk '{print $12}'| awk '{sum += $1} END {print sum}'
