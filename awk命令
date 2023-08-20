@@ -5,3 +5,5 @@ cat xx.file｜awk -F',' '{print $2}'
 cat xx.file ｜ awk '{print $12}'| awk '{sum += $1} END {print sum}'
 ##平均值
 cat xx.file ｜ awk '{print $12}'| awk '{sum += $1} END {print sum/NR}'
+## 以第一列和第四列为key去重
+cat xx.file | awk '!a[$1" "$4]++{print}'
