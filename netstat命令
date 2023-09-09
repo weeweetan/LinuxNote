@@ -1,1 +1,3 @@
-netstat命令
+#netstat命令
+#显示统计信息
+netstat -s 
