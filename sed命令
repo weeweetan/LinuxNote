@@ -1,1 +1,2 @@
 #-i 直接修改
+sed -i 'pattern' file
