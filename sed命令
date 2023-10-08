@@ -2,3 +2,4 @@
 sed -i 'pattern' file
 #/d删除
 #/a追加
+#s/替换
