@@ -6,3 +6,4 @@
 3,15 8-11 * * * myCommand
 实例4：每隔两天的上午8点到11点的第3和第15分钟执行
 3,15 8-11 */2  *  * myCommand
+#/etc/cron.hourly
