@@ -1,3 +1,4 @@
+#crontab -e 进入编辑选项
 #实例1：每1分钟执行一次myCommand
 * * * * * myCommand
 实例2：每小时的第3和第15分钟执行
