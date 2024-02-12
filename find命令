@@ -1,4 +1,3 @@
-
 #删除3天前修改的文件
 find . -maxdepth 1 -mtime +2 -delete
 #按名字查找
