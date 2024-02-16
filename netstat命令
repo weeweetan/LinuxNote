@@ -1,3 +1,4 @@
 #netstat命令
 #显示统计信息
-netstat -s 
+netstat -s
+netstat -nap
