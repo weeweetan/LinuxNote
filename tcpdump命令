@@ -2,3 +2,5 @@
 -i
 #指定host
 host
+#指定ascii码显示
+-A
