@@ -2,5 +2,7 @@
 -i
 #指定host
 host
+#指定端口
+port
 #指定ascii码显示
 -A
