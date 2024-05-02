@@ -6,3 +6,4 @@ host
 port
 #指定ascii码显示
 -A
+-n
