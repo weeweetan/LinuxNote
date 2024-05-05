@@ -1,2 +1,3 @@
 #ss命令查看连接的socket
 ss -na
+-p 查看进程
