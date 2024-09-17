@@ -4,3 +4,4 @@ find . -maxdepth 1 -mtime +2 -delete
 find -name file
 #按类型查找
 find -type
+#按名字模糊查找
