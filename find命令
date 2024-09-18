@@ -5,3 +5,4 @@ find -name file
 #按类型查找
 find -type
 #按名字模糊查找
+find -name “*file*”
