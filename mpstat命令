@@ -1,2 +1,2 @@
 #查看cpu使用率
-#-P 指定CPU，ALL所有CPU
+#-P 指定CPU，跟编号，ALL所有CPU
