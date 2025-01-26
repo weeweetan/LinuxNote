@@ -1,3 +1,4 @@
 -u 查看cpu信息
 -n DEV 查看网卡信息
 -n TCP,ETCP 查看TCP以及TCP错误
+-n B
