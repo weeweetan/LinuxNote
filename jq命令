@@ -3,3 +3,5 @@
 jq .keys
 #格式化打印
 jq .
+#打印指定key
+jq '.key'
