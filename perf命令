@@ -4,3 +4,5 @@ perf top -p
 perf top -g -p 
 # 记录热点
 perf record
+# 查看数据
+perf report
