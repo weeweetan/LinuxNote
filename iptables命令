@@ -6,3 +6,5 @@ drop
 #丢包
 INPUT
 #进向
+OUTPUT
+#出向
