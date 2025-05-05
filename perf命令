@@ -6,3 +6,5 @@ perf top -g -p
 perf record
 # 查看数据
 perf report
+# 指定文件
+perf report -i
