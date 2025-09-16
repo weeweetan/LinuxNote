@@ -4,7 +4,7 @@ perf top -p
 perf top -g -p 
 # 记录热点
 perf record
-# 查看数据
+# 查看数据，默认perf.data
 perf report
 # 指定文件
 perf report -i
