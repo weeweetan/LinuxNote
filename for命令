@@ -15,3 +15,5 @@ for var in item1 item2 ... itemN; do command1; command2… done;
 in列表是可选的，如果不用它，for循环使用命令行的位置参数。
 
 for option #这是shell脚本的一个特点,for 后面可以省略要遍历的变量,这时,表示在遍历$@,即用户传入的所有变量组合（代码来自于nginx源码中的auto/options）。
+
+for i in {1..10}
