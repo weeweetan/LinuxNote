@@ -1,3 +1,4 @@
 #查看cpu使用率
 #-P 指定CPU，跟数字代表指定cpu，ALL所有CPU
+mpstat -P ALL
 
