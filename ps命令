@@ -1,3 +1,4 @@
-##显示进程启动时间和运行时间
+#显示进程启动时间和运行时间
 ps -eo pid,tty,user,comm,lstart,etime|grep fastq
+
 
