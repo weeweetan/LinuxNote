@@ -5,3 +5,5 @@ jq .keys
 jq .
 #打印指定key
 jq '.key'
+#打印数组
+jq '.["key"]'
