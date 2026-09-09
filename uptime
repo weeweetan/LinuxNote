@@ -1,1 +1,3 @@
 #显示开机时间以及负载情况
+$ uptime
+23:37:12 up 15 days,  4:32,  3 users,  load average: 0.12, 0.18, 0.20
