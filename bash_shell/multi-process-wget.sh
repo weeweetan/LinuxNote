@@ -19,7 +19,8 @@ printf 'Output directory: %s\n' "$run_directory"
 pids=()
 status=0
 # Called by the EXIT trap, including INT/TERM exits; covered by the termination test.
-# shellcheck disable=SC2329
+# Older ShellCheck reports SC2317 for trap callbacks; newer releases use SC2329.
+# shellcheck disable=SC2317,SC2329
 cleanup() {
     local pid
     for pid in "${pids[@]}"; do kill "$pid" 2>/dev/null || true; done
