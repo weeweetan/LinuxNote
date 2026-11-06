@@ -4,5 +4,5 @@ __pycache__/
 /.venv/
 /downloads/
 /date.log
-/bash_shell/downloads/
-/bash_shell/date.log
+/bash-shell/downloads/
+/bash-shell/date.log

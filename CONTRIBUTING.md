@@ -6,23 +6,33 @@
 
 ```bash
 git pull --ff-only
-# 使用编辑器修改 docs/ 下的 Markdown 或 bash_shell/ 下的脚本
+# 使用编辑器修改 docs/ 下的 Markdown 或 bash-shell/ 下的脚本
 python3 tools/build_index.py
 python3 tools/check.py --shellcheck
 ```
 
-运行检查需要 Python 3.10+、Bash 和 ShellCheck。Ubuntu/Debian 可通过 `sudo apt-get install python3 shellcheck` 安装检查工具；脚本的额外运行依赖见 [脚本说明](bash_shell/README.md)。
+运行检查需要 Python 3.10+、Bash 和 ShellCheck。Ubuntu/Debian 可通过 `sudo apt-get install python3 shellcheck` 安装检查工具；脚本的额外运行依赖见 [脚本说明](bash-shell/README.md)。
 
-`python3 tools/check.py` 不强制安装 ShellCheck，仍检查目录同步、内部链接和锚点、代码围栏、脚本语法与回归用例。CI 使用 `--shellcheck`，缺少工具会直接失败。测试用临时目录与替身命令，不会扫描网络或修改系统配置；Linux 上还会运行 GNU date 的真实用例。
+`python3 tools/check.py` 不强制安装 ShellCheck，仍检查文件命名、目录同步、内部链接和锚点、代码围栏、脚本语法与回归用例。CI 使用 `--shellcheck`，缺少工具会直接失败。测试用临时目录与替身命令，不会扫描网络或修改系统配置；Linux 上还会运行 GNU date 的真实用例。
+
+## 文件命名
+
+- 目录名使用小写英文和连字符，如 `bash-shell/`。
+- 笔记以 `.md` 结尾，多词用连字符连接，如 `docs/shell/exercises.md`。
+- Shell 脚本以 `.sh` 结尾，用名称描述用途，如 `sum-range.sh`、`inspect-tls.sh`。
+- Python 文件按模块约定使用小写字母和下划线，如 `build_index.py`、`test_scripts.py`。
+- `README.md`、`CONTRIBUTING.md` 及 `.gitignore`、`.editorconfig`、`.github` 等工具约定名称保留。
+
+命令笔记在 `docs/` 中维护，分类元数据只登记当前路径。重命名文件时同步更新链接、命令示例和测试中的调用路径。
 
 ## 新增笔记
 
-1. 复制 [模板](docs/TEMPLATE.md) 到对应分类，使用稳定的英文文件名。
+1. 复制 [模板](docs/template.md) 到对应分类，使用稳定的英文文件名。
 2. 写明用途、完整命令、关键参数与输出解读，附上官方手册。
-3. 在 [catalog.json](docs/catalog.json) 对应分类的 `items` 中登记 `name`、`path`、`summary` 和 `legacy`。全新笔记的 `legacy` 使用空数组。
-4. 执行 `python3 tools/build_index.py`，更新目录及旧路径说明；`--check` 只校验生成结果是否最新。
+3. 在 [catalog.json](docs/catalog.json) 对应分类的 `items` 中登记 `name`、`path` 和 `summary`。
+4. 执行 `python3 tools/build_index.py` 更新目录；`--check` 只校验生成结果是否最新。
 
-不要手工修改生成的 `docs/README.md` 或根目录旧路径说明。已有路径变更时更新 `catalog.json`，避免保留失效入口。仓库内部链接使用相对路径；引用章节时使用 GitHub 标题锚点或显式 HTML `id`。
+不要手工修改生成的 `docs/README.md`。已有路径变更时更新 `catalog.json`。仓库内部链接使用相对路径；引用章节时使用 GitHub 标题锚点或显式 HTML `id`。
 
 ## 脚本约定
 
