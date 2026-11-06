@@ -1,19 +1,19 @@
 # Shell 练习路线
 
-[返回首页](../../README.md) · [脚本与依赖](../../bash_shell/README.md) · [Bash 基础](../README.md#shell)
+[返回首页](../../README.md) · [脚本与依赖](../../bash-shell/README.md) · [Bash 基础](../README.md#shell)
 
-原来的 `bash_shell/shell.sh` 是一份散列的练习草稿，包含文字标题、重复内容和空编号。这里按知识点整理；独立脚本可按需运行，文中的代码片段需准备相应输入。
+按知识点选择练习主题，配合独立脚本理解输入、判断、文件处理与网络观察。文中的代码片段需准备相应输入。
 
 ## 输入、判断与循环
 
-| 原练习主题 | 现在的入口 | 需要掌握的点 |
+| 练习主题 | 练习入口 | 需要掌握的点 |
 | --- | --- | --- |
-| 模拟登录、字符串判断、yes/no | [hello-2.sh](../../bash_shell/hello-2.sh)、[yes_to_stop.sh](../../bash_shell/yes_to_stop.sh) | 字符串比较、case、EOF；演示不保存密码或冒充认证系统 |
-| 数字比较与计算 | [multiplying.sh](../../bash_shell/multiplying.sh)、[cal_1_100.sh](../../bash_shell/cal_1_100.sh) | 先验证整数，再做算术；前导零、负数与上限 |
-| 文件是否存在、文件类型 | [file_perm.sh](../../bash_shell/file_perm.sh) | 使用 `[[ -e "$path" ]]`，保留路径中的空格 |
-| for、函数、参数与 case | [for](for.md)、[how_paras.sh](../../bash_shell/how_paras.sh)、[show123-3.sh](../../bash_shell/show123-3.sh) | `"$@"` 保留参数边界，函数接收独立参数 |
+| 模拟登录、字符串判断、yes/no | [hello-if.sh](../../bash-shell/hello-if.sh)、[wait-for-yes.sh](../../bash-shell/wait-for-yes.sh) | 字符串比较、case、EOF；演示不保存密码或冒充认证系统 |
+| 数字比较与计算 | [multiply-integers.sh](../../bash-shell/multiply-integers.sh)、[sum-range.sh](../../bash-shell/sum-range.sh) | 先验证整数，再做算术；前导零、负数与上限 |
+| 文件是否存在、文件类型 | [check-file-permissions.sh](../../bash-shell/check-file-permissions.sh) | 使用 `[[ -e "$path" ]]`，保留路径中的空格 |
+| for、函数、参数与 case | [for](for.md)、[show-arguments.sh](../../bash-shell/show-arguments.sh)、[choice-number.sh](../../bash-shell/choice-number.sh) | `"$@"` 保留参数边界，函数接收独立参数 |
 | 逐行读取、读取文件并计算 | [IFS / read](ifs.md)、[awk](../text/awk.md) | 保留空白、反斜杠及无末尾换行的最后一行 |
-| 日期、用户名、系统信息 | [date.sh](../../bash_shell/date.sh)、[uname](../performance/uname.md) | 有限采样；当前用户使用 `id -un`，不要解析 ps 输出 |
+| 日期、用户名、系统信息 | [log-timestamps.sh](../../bash-shell/log-timestamps.sh)、[uname](../performance/uname.md) | 有限采样；当前用户使用 `id -un`，不要解析 ps 输出 |
 
 ## 文件处理练习
 
@@ -38,8 +38,8 @@ find ./lab -type f -printf '%s %p\n' | sort -nr | head -n 5
 ## 网络与进程练习
 
 - 获取地址：[ip](../network/ip.md)，不依赖旧版 ifconfig 的文本格式。
-- 探测显式地址范围：[pingip.sh](../../bash_shell/pingip.sh)。ICMP 无回复与主机宕机不是同一结论。
-- 判断监听端口：[netstat.sh](../../bash_shell/netstat.sh)、[ss](../network/ss.md)。端口 80 不应误命中 8080；需要等待启动时，应设置截止时间。
+- 探测显式地址范围：[ping-range.sh](../../bash-shell/ping-range.sh)。ICMP 无回复与主机宕机不是同一结论。
+- 判断监听端口：[check-listening-ports.sh](../../bash-shell/check-listening-ports.sh)、[ss](../network/ss.md)。端口 80 不应误命中 8080；需要等待启动时，应设置截止时间。
 - 确认进程身份：[ps](../performance/ps.md)、[pstree](../performance/pstree.md)。停止服务优先使用服务管理器；不要从宽泛的 grep 结果直接批量 `kill -9`。
 
 ## 账号状态辨析

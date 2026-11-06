@@ -74,18 +74,41 @@ def check_markdown(paths, root):
     return errors
 
 
+def check_filenames():
+    paths = subprocess.check_output(['git', 'ls-files', '-z'], cwd=ROOT).decode('utf-8').split('\0')
+    errors = []
+    special = {'README.md', 'CONTRIBUTING.md', '.gitignore', '.editorconfig', '.github'}
+    for name in filter(None, paths):
+        path = Path(name)
+        if path.parts[0] == 'bash-shell' and path.name != 'README.md' and path.suffix != '.sh':
+            errors.append(f'{name}: Bash scripts must use the .sh extension')
+        for directory in path.parts[:-1]:
+            if directory != '.github' and not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', directory):
+                errors.append(f'{name}: directory names must use lowercase letters and hyphens')
+        if path.name in special:
+            continue
+        stem = r'[a-z][a-z0-9]*(?:_[a-z0-9]+)*' if path.suffix == '.py' else r'[a-z0-9]+(?:-[a-z0-9]+)*'
+        if not path.suffix or not re.fullmatch(stem + r'\.[a-z0-9]+', path.name):
+            errors.append(f'{name}: use a lowercase name and a file extension; Python uses underscores')
+    return errors, len(list(filter(None, paths)))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--shellcheck', action='store_true', help='Require ShellCheck as well')
     args = parser.parse_args()
+    filename_errors, file_count = check_filenames()
+    if filename_errors:
+        parser.exit(1, '\n'.join(filename_errors) + '\n')
+    print(f'Checked naming conventions for {file_count} tracked files.', flush=True)
     subprocess.run([sys.executable, str(ROOT / 'tools/build_index.py'), '--check'], check=True)
-    paths = [ROOT / 'README.md', ROOT / 'CONTRIBUTING.md', ROOT / 'bash_shell/README.md']
+    paths = [ROOT / 'README.md', ROOT / 'CONTRIBUTING.md', ROOT / 'bash-shell/README.md']
     paths.extend(sorted((ROOT / 'docs').rglob('*.md')))
     errors = check_markdown(paths, ROOT)
     if errors:
         parser.exit(1, '\n'.join(errors) + '\n')
     print(f'Checked {len(paths)} Markdown documents and their internal links.', flush=True)
-    scripts = sorted(p for p in (ROOT / 'bash_shell').iterdir() if p.is_file() and p.suffix != '.md')
+    scripts = sorted(p for p in (ROOT / 'bash-shell').iterdir() if p.is_file() and p.suffix != '.md')
     for script in scripts:
         if not script.read_text(encoding='utf-8').startswith('#!/usr/bin/env bash\n'):
             parser.exit(1, f'Missing Bash shebang: {script.name}\n')

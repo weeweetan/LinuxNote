@@ -6,90 +6,57 @@
       {
         "name": "awk",
         "path": "docs/text/awk.md",
-        "summary": "按字段提取、聚合与去重。",
-        "legacy": [
-          "awk命令"
-        ]
+        "summary": "按字段提取、聚合与去重。"
       },
       {
         "name": "grep",
         "path": "docs/text/grep.md",
-        "summary": "按模式查找文本并显示位置。",
-        "legacy": [
-          "grep 命令"
-        ]
+        "summary": "按模式查找文本并显示位置。"
       },
       {
         "name": "sed",
         "path": "docs/text/sed.md",
-        "summary": "按行筛选、替换或追加文本。",
-        "legacy": [
-          "sed命令"
-        ]
+        "summary": "按行筛选、替换或追加文本。"
       },
       {
         "name": "jq",
         "path": "docs/text/jq.md",
-        "summary": "格式化 JSON，并提取对象或数组。",
-        "legacy": [
-          "jq命令"
-        ]
+        "summary": "格式化 JSON，并提取对象或数组。"
       },
       {
         "name": "sort",
         "path": "docs/text/sort.md",
-        "summary": "对文本按整行、数值或指定列排序。",
-        "legacy": [
-          "sort命令"
-        ]
+        "summary": "对文本按整行、数值或指定列排序。"
       },
       {
         "name": "uniq",
         "path": "docs/text/uniq.md",
-        "summary": "合并相邻重复行并统计出现次数。",
-        "legacy": [
-          "uniq"
-        ]
+        "summary": "合并相邻重复行并统计出现次数。"
       },
       {
         "name": "wc",
         "path": "docs/text/wc.md",
-        "summary": "统计行数、单词数和字节数。",
-        "legacy": [
-          "wc命令"
-        ]
+        "summary": "统计行数、单词数和字节数。"
       },
       {
         "name": "tail",
         "path": "docs/text/tail.md",
-        "summary": "查看文件末尾并持续跟踪日志。",
-        "legacy": [
-          "tail命令"
-        ]
+        "summary": "查看文件末尾并持续跟踪日志。"
       },
       {
         "name": "less",
         "path": "docs/text/less.md",
-        "summary": "分页阅读大文件并搜索上下文。",
-        "legacy": [
-          "less命令"
-        ]
+        "summary": "分页阅读大文件并搜索上下文。"
       },
       {
         "name": "tee",
         "path": "docs/text/tee.md",
-        "summary": "将管道内容同时显示并写入文件。",
-        "legacy": [
-          "tee命令"
-        ]
+        "summary": "将管道内容同时显示并写入文件。"
       },
       {
         "name": "echo / printf",
         "path": "docs/text/echo.md",
-        "summary": "输出文本，使用 printf 明确控制格式。",
-        "legacy": [
-          "echo命令"
-        ]
+        "summary": "输出文本，使用 printf 明确控制格式。"
       }
     ]
   },
@@ -100,74 +67,47 @@
       {
         "name": "ls",
         "path": "docs/files/ls.md",
-        "summary": "查看文件属性和修改时间。",
-        "legacy": [
-          "ls命令"
-        ]
+        "summary": "查看文件属性和修改时间。"
       },
       {
         "name": "find",
         "path": "docs/files/find.md",
-        "summary": "按名称、类型和时间查找文件。",
-        "legacy": [
-          "find命令"
-        ]
+        "summary": "按名称、类型和时间查找文件。"
       },
       {
         "name": "xargs",
         "path": "docs/files/xargs.md",
-        "summary": "将标准输入转换为命令参数。",
-        "legacy": [
-          "xargs命令"
-        ]
+        "summary": "将标准输入转换为命令参数。"
       },
       {
         "name": "tar",
         "path": "docs/files/tar.md",
-        "summary": "创建、列出和解开归档。",
-        "legacy": [
-          "tar命令"
-        ]
+        "summary": "创建、列出和解开归档。"
       },
       {
         "name": "rsync",
         "path": "docs/files/rsync.md",
-        "summary": "同步目录并先预览变化。",
-        "legacy": [
-          "rsync命令"
-        ]
+        "summary": "同步目录并先预览变化。"
       },
       {
         "name": "diff",
         "path": "docs/files/diff.md",
-        "summary": "比较两个文本文件或目录。",
-        "legacy": [
-          "diff命令"
-        ]
+        "summary": "比较两个文本文件或目录。"
       },
       {
         "name": "md5sum / sha256sum",
         "path": "docs/files/md5sum.md",
-        "summary": "生成和核对文件摘要。",
-        "legacy": [
-          "md5sum"
-        ]
+        "summary": "生成和核对文件摘要。"
       },
       {
         "name": "truncate",
         "path": "docs/files/truncate.md",
-        "summary": "缩小或扩展文件长度。",
-        "legacy": [
-          "truncate命令"
-        ]
+        "summary": "缩小或扩展文件长度。"
       },
       {
         "name": "vim",
         "path": "docs/files/vim.md",
-        "summary": "搜索、分屏与批量编辑速查。",
-        "legacy": [
-          "vim"
-        ]
+        "summary": "搜索、分屏与批量编辑速查。"
       }
     ]
   },
@@ -178,131 +118,82 @@
       {
         "name": "uptime",
         "path": "docs/performance/uptime.md",
-        "summary": "查看运行时间和 1、5、15 分钟负载。",
-        "legacy": [
-          "uptime"
-        ]
+        "summary": "查看运行时间和 1、5、15 分钟负载。"
       },
       {
         "name": "uname",
         "path": "docs/performance/uname.md",
-        "summary": "查看内核与机器架构。",
-        "legacy": [
-          "uname命令"
-        ]
+        "summary": "查看内核与机器架构。"
       },
       {
         "name": "ps",
         "path": "docs/performance/ps.md",
-        "summary": "查看进程快照及启动时间。",
-        "legacy": [
-          "ps命令"
-        ]
+        "summary": "查看进程快照及启动时间。"
       },
       {
         "name": "pstree",
         "path": "docs/performance/pstree.md",
-        "summary": "查看进程父子关系与线程。",
-        "legacy": [
-          "pstree"
-        ]
+        "summary": "查看进程父子关系与线程。"
       },
       {
         "name": "htop",
         "path": "docs/performance/htop.md",
-        "summary": "交互式观察进程、CPU 和内存。",
-        "legacy": [
-          "htop"
-        ]
+        "summary": "交互式观察进程、CPU 和内存。"
       },
       {
         "name": "nohup",
         "path": "docs/performance/nohup.md",
-        "summary": "让命令忽略挂断信号并明确重定向输出。",
-        "legacy": [
-          "nohup"
-        ]
+        "summary": "让命令忽略挂断信号并明确重定向输出。"
       },
       {
         "name": "free",
         "path": "docs/performance/free.md",
-        "summary": "观察物理内存、缓存和交换空间。",
-        "legacy": [
-          "free命令"
-        ]
+        "summary": "观察物理内存、缓存和交换空间。"
       },
       {
         "name": "vmstat",
         "path": "docs/performance/vmstat.md",
-        "summary": "关联运行队列、内存、交换、I/O 与 CPU。",
-        "legacy": [
-          "vmstat命令"
-        ]
+        "summary": "关联运行队列、内存、交换、I/O 与 CPU。"
       },
       {
         "name": "pmap",
         "path": "docs/performance/pmap.md",
-        "summary": "查看进程的内存映射及驻留内存。",
-        "legacy": [
-          "pmap",
-          "pmap命令"
-        ]
+        "summary": "查看进程的内存映射及驻留内存。"
       },
       {
         "name": "smem",
         "path": "docs/performance/smem.md",
-        "summary": "用 USS、PSS、RSS 观察进程内存。",
-        "legacy": [
-          "smem命令"
-        ]
+        "summary": "用 USS、PSS、RSS 观察进程内存。"
       },
       {
         "name": "iostat",
         "path": "docs/performance/iostat.md",
-        "summary": "查看块设备吞吐、延迟与利用率。",
-        "legacy": [
-          "iostat"
-        ]
+        "summary": "查看块设备吞吐、延迟与利用率。"
       },
       {
         "name": "iotop",
         "path": "docs/performance/iotop.md",
-        "summary": "按进程观察磁盘 I/O 活动。",
-        "legacy": [
-          "iotop"
-        ]
+        "summary": "按进程观察磁盘 I/O 活动。"
       },
       {
         "name": "mpstat",
         "path": "docs/performance/mpstat.md",
-        "summary": "按逻辑 CPU 查看使用情况。",
-        "legacy": [
-          "mpstat命令"
-        ]
+        "summary": "按逻辑 CPU 查看使用情况。"
       },
       {
         "name": "pidstat",
         "path": "docs/performance/pidstat.md",
-        "summary": "持续采样指定进程的 CPU、内存和 I/O。",
-        "legacy": [
-          "pidstat命令"
-        ]
+        "summary": "持续采样指定进程的 CPU、内存和 I/O。"
       },
       {
         "name": "sar",
         "path": "docs/performance/sar.md",
-        "summary": "采样或回看系统活动。",
-        "legacy": [
-          "sar命令"
-        ]
+        "summary": "采样或回看系统活动。"
       },
       {
         "name": "perf",
         "path": "docs/performance/perf.md",
-        "summary": "采样程序热点和调用栈。",
-        "legacy": [
-          "perf命令"
-        ]
+        "summary": "采样程序热点和调用栈。"
       }
     ]
   },
@@ -313,66 +204,42 @@
       {
         "name": "ip",
         "path": "docs/network/ip.md",
-        "summary": "查看地址、链路和路由。",
-        "legacy": [
-          "ip命令"
-        ]
+        "summary": "查看地址、链路和路由。"
       },
       {
         "name": "ss",
         "path": "docs/network/ss.md",
-        "summary": "查看监听端口和已建立连接。",
-        "legacy": [
-          "ss命令"
-        ]
+        "summary": "查看监听端口和已建立连接。"
       },
       {
         "name": "netstat",
         "path": "docs/network/netstat.md",
-        "summary": "读取旧环境的连接与协议统计。",
-        "legacy": [
-          "netstat命令"
-        ]
+        "summary": "读取旧环境的连接与协议统计。"
       },
       {
         "name": "iftop",
         "path": "docs/network/iftop.md",
-        "summary": "按连接观察网卡带宽。",
-        "legacy": [
-          "iftop命令"
-        ]
+        "summary": "按连接观察网卡带宽。"
       },
       {
         "name": "NetHogs",
         "path": "docs/network/nethogs.md",
-        "summary": "按进程定位带宽使用者。",
-        "legacy": [
-          "NetHogs命令"
-        ]
+        "summary": "按进程定位带宽使用者。"
       },
       {
         "name": "tcpdump",
         "path": "docs/network/tcpdump.md",
-        "summary": "按主机、端口和方向捕获网络报文。",
-        "legacy": [
-          "tcpdump命令"
-        ]
+        "summary": "按主机、端口和方向捕获网络报文。"
       },
       {
         "name": "tshark",
         "path": "docs/network/tshark.md",
-        "summary": "离线解析 pcap 并提取协议字段。",
-        "legacy": [
-          "tshark命令"
-        ]
+        "summary": "离线解析 pcap 并提取协议字段。"
       },
       {
         "name": "iptables",
         "path": "docs/network/iptables.md",
-        "summary": "查看规则顺序、计数器和 NAT 表。",
-        "legacy": [
-          "iptables命令"
-        ]
+        "summary": "查看规则顺序、计数器和 NAT 表。"
       }
     ]
   },
@@ -383,42 +250,27 @@
       {
         "name": "systemctl",
         "path": "docs/services/systemctl.md",
-        "summary": "查看 systemd 服务状态、定义和日志。",
-        "legacy": [
-          "systemctl命令"
-        ]
+        "summary": "查看 systemd 服务状态、定义和日志。"
       },
       {
         "name": "cron",
         "path": "docs/services/cron.md",
-        "summary": "编写用户 crontab 并明确运行环境。",
-        "legacy": [
-          "cron定时任务"
-        ]
+        "summary": "编写用户 crontab 并明确运行环境。"
       },
       {
         "name": "monit",
         "path": "docs/services/monit.md",
-        "summary": "检查 Monit 配置与已管理服务。",
-        "legacy": [
-          "monit"
-        ]
+        "summary": "检查 Monit 配置与已管理服务。"
       },
       {
         "name": "ac / lastcomm",
         "path": "docs/services/accounting.md",
-        "summary": "查看登录时长和已记录的进程记账信息。",
-        "legacy": [
-          "ac 和 lastcomm命令"
-        ]
+        "summary": "查看登录时长和已记录的进程记账信息。"
       },
       {
         "name": "watch",
         "path": "docs/services/watch.md",
-        "summary": "按固定间隔重复显示命令结果。",
-        "legacy": [
-          "watch命令"
-        ]
+        "summary": "按固定间隔重复显示命令结果。"
       }
     ]
   },
@@ -429,34 +281,22 @@
       {
         "name": "addr2line",
         "path": "docs/debugging/addr2line.md",
-        "summary": "将程序地址映射为函数和源码行。",
-        "legacy": [
-          "addr2line命令"
-        ]
+        "summary": "将程序地址映射为函数和源码行。"
       },
       {
         "name": "ldd",
         "path": "docs/debugging/ldd.md",
-        "summary": "查看可信可执行文件的动态库依赖。",
-        "legacy": [
-          "ldd命令"
-        ]
+        "summary": "查看可信可执行文件的动态库依赖。"
       },
       {
         "name": "objdump",
         "path": "docs/debugging/objdump.md",
-        "summary": "查看 ELF 段、符号和反汇编。",
-        "legacy": [
-          "objdump"
-        ]
+        "summary": "查看 ELF 段、符号和反汇编。"
       },
       {
         "name": "strings",
         "path": "docs/debugging/strings.md",
-        "summary": "从二进制中提取可打印字符串。",
-        "legacy": [
-          "strings命令"
-        ]
+        "summary": "从二进制中提取可打印字符串。"
       }
     ]
   },
@@ -467,34 +307,22 @@
       {
         "name": "for",
         "path": "docs/shell/for.md",
-        "summary": "遍历参数、文件和数值序列。",
-        "legacy": [
-          "for命令"
-        ]
+        "summary": "遍历参数、文件和数值序列。"
       },
       {
         "name": "declare",
         "path": "docs/shell/declare.md",
-        "summary": "声明 Bash 数组和变量属性。",
-        "legacy": [
-          "declare命令"
-        ]
+        "summary": "声明 Bash 数组和变量属性。"
       },
       {
         "name": "IFS / read",
         "path": "docs/shell/ifs.md",
-        "summary": "控制字段分割并逐行保留原始文本。",
-        "legacy": [
-          "IFS命令"
-        ]
+        "summary": "控制字段分割并逐行保留原始文本。"
       },
       {
         "name": "引用与转义",
         "path": "docs/shell/quoting.md",
-        "summary": "区分字面字符、变量展开和 shell 操作符。",
-        "legacy": [
-          "转义说明"
-        ]
+        "summary": "区分字面字符、变量展开和 shell 操作符。"
       }
     ]
   }

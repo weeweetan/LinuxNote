@@ -1,8 +1,0 @@
-# iptables：笔记已迁移
-
-请阅读 [iptables](docs/network/iptables.md)。
-
-本地路径：docs/network/iptables.md
-在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/network/iptables.md
-
-此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。
