@@ -1,8 +1,6 @@
-#!/bin/bash
-
-echo "The srcipt name is          ==>${0}"
-echo "Total parameters is         ==>$#"
-[ "$#" -lt 2 ] && echo "The number of parameter less than 2,stop here" && exit 0
-echo "Your whole parameter is     ==>'$@'"
-echo "The 1st parameter is        ==>${1}"
-echo "The 2nd parameter is        ==>${2}"
+#!/usr/bin/env bash
+printf 'Script: %s\nArgument count: %d\n' "$0" "$#"
+if (( $# < 2 )); then printf 'Please provide at least two arguments.\n' >&2; exit 2; fi
+printf 'Each argument:\n'
+printf '<%s>\n' "$@"
+printf 'First: %s\nSecond: %s\n' "$1" "$2"

@@ -1,0 +1,8 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+/.venv/
+/downloads/
+/date.log
+/bash_shell/downloads/
+/bash_shell/date.log

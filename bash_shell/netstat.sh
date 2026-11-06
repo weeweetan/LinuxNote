@@ -1,29 +1,20 @@
-#!/bin/bash
-
-echo "Now, I will detect your linux server's services."
-echo -e "The www, ssh mail and ftp will be detect.\n"
-
-testfile=/dev/shm/netstat_checking.txt
-netstat -tunl>${testfile}
-
-testing=$(grep ":80" ${testfile})
-if [ "${testing}" != "" ]; then
-    echo "www is running on your server"
+#!/usr/bin/env bash
+# A listening port does not prove which application owns it.
+if command -v ss >/dev/null 2>&1; then
+    sockets=$(ss -H -lnt) || exit 1
+elif command -v netstat >/dev/null 2>&1; then
+    sockets=$(netstat -lnt) || exit 1
+else
+    printf 'Required command: ss (iproute2) or netstat (net-tools).\n' >&2
+    exit 1
 fi
-
-testing=$(grep ":22" ${testfile})
-if [ "${testing}" != "" ]; then
-    echo "ssh is running on your server"
-fi
-
-
-testing=$(grep ":25" ${testfile})
-if [ "${testing}" != "" ]; then
-    echo "mail is running on your server"
-fi
-
-
-testing=$(grep ":21" ${testfile})
-if [ "${testing}" != "" ]; then
-    echo "ftp is running on your server"
-fi
+for port in 80 22 25 21; do
+    if awk -v wanted="$port" '
+        { n = split($4, parts, ":"); if (parts[n] == wanted) found = 1 }
+        END { exit !found }
+    ' <<< "$sockets"; then
+        printf 'TCP/%d is listening\n' "$port"
+    else
+        printf 'TCP/%d is not listening\n' "$port"
+    fi
+done

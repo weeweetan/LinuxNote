@@ -1,4 +1,8 @@
--u 查看cpu信息
--n DEV 查看网卡信息
--n TCP,ETCP 查看TCP以及TCP错误
--n B 网络接口的字节数统计
+# sar：笔记已迁移
+
+请阅读 [sar](docs/performance/sar.md)。
+
+本地路径：docs/performance/sar.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/performance/sar.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

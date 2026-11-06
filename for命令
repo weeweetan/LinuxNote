@@ -1,19 +1,8 @@
-for循环一般格式为：
+# for：笔记已迁移
 
-for var in item1 item2 ... itemN
-do
-    command1
-    command2
-    ...
-    commandN
-done
-写成一行：
+请阅读 [for](docs/shell/for.md)。
 
-for var in item1 item2 ... itemN; do command1; command2… done;
-当变量值在列表里，for循环即执行一次所有命令，使用变量名获取列表中的当前取值。命令可为任何有效的shell命令和语句。in列表可以包含替换、字符串和文件名。
+本地路径：docs/shell/for.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/shell/for.md
 
-in列表是可选的，如果不用它，for循环使用命令行的位置参数。
-
-for option #这是shell脚本的一个特点,for 后面可以省略要遍历的变量,这时,表示在遍历$@,即用户传入的所有变量组合（代码来自于nginx源码中的auto/options）。
-
-for i in {1..10}
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

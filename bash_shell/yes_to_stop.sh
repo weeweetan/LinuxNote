@@ -1,8 +1,8 @@
-#!/bin/bash
-
-while [ "${yn}" != "yes" -a "${yn}" != "YES" ]
-do
-    read -p "Please input yes/YES to stop this program. " yn
+#!/usr/bin/env bash
+while read -r -p 'Please input yes/YES to stop: ' answer; do
+    case "$answer" in
+        yes|YES) printf 'OK.\n'; exit 0 ;;
+    esac
 done
-
-echo "OK. you input the correct answer."
+printf 'Input ended before confirmation.\n' >&2
+exit 1

@@ -1,2 +1,8 @@
-#分析包工具
-常用参数
+# tshark：笔记已迁移
+
+请阅读 [tshark](docs/network/tshark.md)。
+
+本地路径：docs/network/tshark.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/network/tshark.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

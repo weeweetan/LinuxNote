@@ -1,18 +1,18 @@
-#!/bin/bash
-
-echo -e "Please input a filename, I will check the file's type and permission.\n\n"
-read -p "Input a filename: " filename
-test -z ${filename} && echo -e "You must a filename" && exit 0
-
-test ! -e ${filename} && echo -e "the filename ${filename} don't exist" && exit 0
-
-test -f ${filename} && filetype="regular file"
-test -d ${filename} && filetype="directory"
-test -r ${filename} && perm="readable"
-test -w ${filename} && perm="${perm} writeable"
-test -x ${filename} && perm="${perm} executable"
-
-echo "The filename:${filename} is ${filetype}"
-echo "And permission for you are ${perm}"
-
-
+#!/usr/bin/env bash
+if (( $# > 1 )); then printf 'Usage: %s [PATH]\n' "$0" >&2; exit 2; fi
+if (( $# )); then filename=$1; else read -r -p 'Input a filename: ' filename || exit 2; fi
+[[ -n $filename ]] || { printf 'A path is required.\n' >&2; exit 2; }
+if [[ ! -e $filename && ! -L $filename ]]; then
+    printf 'Path does not exist: %s\n' "$filename" >&2
+    exit 1
+fi
+filetype=other
+if [[ -L $filename ]]; then filetype='symbolic link'
+elif [[ -f $filename ]]; then filetype='regular file'
+elif [[ -d $filename ]]; then filetype=directory
+fi
+permissions=''
+[[ -r $filename ]] && permissions+=' readable'
+[[ -w $filename ]] && permissions+=' writable'
+[[ -x $filename ]] && permissions+=' executable'
+printf '%s: %s; current-user access:%s\n' "$filename" "$filetype" "${permissions:- none}"

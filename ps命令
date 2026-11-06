@@ -1,5 +1,8 @@
-#显示进程启动时间和运行时间以及命令行
-ps -eo pid,tty,user,comm,lstart,etime|grep fastq
+# ps：笔记已迁移
 
+请阅读 [ps](docs/performance/ps.md)。
 
+本地路径：docs/performance/ps.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/performance/ps.md
 
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

@@ -1,3 +1,8 @@
-NetHogs – 找出占用带宽的进程
+# NetHogs：笔记已迁移
 
-NetHogs 是一个轻便的网络监控工具，它按照进程名称（如 Firefox、wget 等）对带宽进行分组。如果网络流量突然爆发，启动 NetHogs，您将看到哪个进程（PID）导致了带宽激增。
+请阅读 [NetHogs](docs/network/nethogs.md)。
+
+本地路径：docs/network/nethogs.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/network/nethogs.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

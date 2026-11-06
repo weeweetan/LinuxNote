@@ -1,13 +1,6 @@
-#!/bin/bash
-
-case "${1}" in 
-    "hello")
-        echo "Hello, how are you?"
-        ;;
-    "")
-        echo "You must input parameters, ex>{${0} someword}"
-        ;;
-    *)
-        echo "The only parameter is hello,ex>{${0} hello}"
-        ;;
+#!/usr/bin/env bash
+case ${1:-} in
+    hello) printf 'Hello, how are you?\n' ;;
+    '') printf 'Usage: %s hello\n' "$0" >&2; exit 2 ;;
+    *) printf 'The accepted argument is hello.\n' >&2; exit 2 ;;
 esac

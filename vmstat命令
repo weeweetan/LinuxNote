@@ -1,2 +1,8 @@
-# 查看cpu使用情况
-# -m 刷新间隔
+# vmstat：笔记已迁移
+
+请阅读 [vmstat](docs/performance/vmstat.md)。
+
+本地路径：docs/performance/vmstat.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/performance/vmstat.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。
