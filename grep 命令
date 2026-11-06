@@ -1,7 +1,8 @@
-#字符串搜素命令
-#-v 排除关键字
-#-r 递归搜索
-#-n 显示行号
-#-P 正则表达式
-#-i 不区分大小写搜索
-#* 通配符
+# grep：笔记已迁移
+
+请阅读 [grep](docs/text/grep.md)。
+
+本地路径：docs/text/grep.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/text/grep.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

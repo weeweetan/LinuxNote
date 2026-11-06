@@ -1,1 +1,8 @@
-#同步文件命令
+# rsync：笔记已迁移
+
+请阅读 [rsync](docs/files/rsync.md)。
+
+本地路径：docs/files/rsync.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/files/rsync.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

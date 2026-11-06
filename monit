@@ -1,3 +1,8 @@
-monit – 进程监控器
+# monit：笔记已迁移
 
-monit 是一个免费且开源的进程监控软件，它可以自动重启停掉的服务。您也可以使用 Systemd、daemontools 或其他类似工具来达到同样的目的。
+请阅读 [monit](docs/services/monit.md)。
+
+本地路径：docs/services/monit.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/services/monit.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

@@ -1,11 +1,8 @@
-# 打包命令
-#打包选项
--c
-#压缩选项
--z
-#显示文件
--f
-#解压文件
--x
-#显示具体内容
--v
+# tar：笔记已迁移
+
+请阅读 [tar](docs/files/tar.md)。
+
+本地路径：docs/files/tar.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/files/tar.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

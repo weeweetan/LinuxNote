@@ -1,9 +1,8 @@
-#!/bin/bash
-
-if [ "${1}" == "hello" ]; then
-    echo "Hello, how are you?"
-elif [ "${1}" == "" ]; then
-    echo "You must input parameters, ex>{${0} someword}"
-else 
-    echo "The only parameter is hello,ex>{${0} hello}"
+#!/usr/bin/env bash
+if [[ ${1:-} == hello ]]; then
+    printf 'Hello, how are you?\n'
+elif [[ -z ${1:-} ]]; then
+    printf 'Usage: %s hello\n' "$0" >&2; exit 2
+else
+    printf 'The accepted argument is hello.\n' >&2; exit 2
 fi

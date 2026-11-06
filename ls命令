@@ -1,3 +1,8 @@
-#通过--full-time 显示完整修改时间
-#通过-at 按修改时间顺序排序
-#通过-l 显示完整信息
+# ls：笔记已迁移
+
+请阅读 [ls](docs/files/ls.md)。
+
+本地路径：docs/files/ls.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/files/ls.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

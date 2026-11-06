@@ -1,24 +1,9 @@
-#!/bin/bash
-
-function printit(){
-     echo -n "Your choice is "
+#!/usr/bin/env bash
+print_choice() {
+    printf 'Your choice is '
+    printf '%s\n' "$1" | tr '[:lower:]' '[:upper:]'
 }
-
-echo "This program will print your choice."
-
-case ${1} in
-    "one")
-        printit; echo ${1} | tr 'a-z' 'A-Z'
-        ;;
-    "two")
-        printit; echo ${1} | tr 'a-z' 'A-Z'
-        ;;
-    
-    "three")
-        printit; echo ${1} | tr 'a-z' 'A-Z'
-        ;;
-
-    *)
-        echo "Usage ${0} {one|two|three}"
-        ;;
+case ${1:-} in
+    one|two|three) print_choice "$1" ;;
+    *) printf 'Usage: %s {one|two|three}\n' "$0" >&2; exit 2 ;;
 esac

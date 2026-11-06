@@ -1,8 +1,5 @@
-#!/bin/bash
-
-users=$(cut -d ':' -f1 /etc/passwd)
-
-for username in ${users}
-do
-    id ${username}
-done
+#!/usr/bin/env bash
+# Local /etc/passwd entries only; this is not a directory-service inventory.
+while IFS=: read -r username rest; do
+    id -- "$username" || exit 1
+done < /etc/passwd

@@ -1,14 +1,8 @@
-#指定网卡接口
--i
-#指定host
-host
-#指定源端口
-#指定端口
-port
-#指定ascii码显示
--A
--n
-#显示详情
--v
-#写文件
--w
+# tcpdump：笔记已迁移
+
+请阅读 [tcpdump](docs/network/tcpdump.md)。
+
+本地路径：docs/network/tcpdump.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/network/tcpdump.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

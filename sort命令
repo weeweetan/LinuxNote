@@ -1,3 +1,8 @@
-#默认按字母序
-#-n 依照数值的大小排序
-#-k 按列排序，例如k2就是按第二列排序
+# sort：笔记已迁移
+
+请阅读 [sort](docs/text/sort.md)。
+
+本地路径：docs/text/sort.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/text/sort.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

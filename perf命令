@@ -1,10 +1,8 @@
-#查看进程热点
-perf top -p
-#查看进程热点，显示堆栈
-perf top -g -p 
-# 记录热点
-perf record
-# 查看数据，默认perf.data
-perf report
-# 指定文件
-perf report -i
+# perf：笔记已迁移
+
+请阅读 [perf](docs/performance/perf.md)。
+
+本地路径：docs/performance/perf.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/performance/perf.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

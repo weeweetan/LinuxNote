@@ -1,7 +1,4 @@
-#!/bin/bash
-
-for animal in dog cat elephat
-do
-    echo "There are ${animal}s"
+#!/usr/bin/env bash
+for animal in dog cat elephant; do
+    printf 'There are %ss\n' "$animal"
 done
-

@@ -1,10 +1,8 @@
-#crontab -e 进入编辑选项
-#实例1：每1分钟执行一次myCommand
-* * * * * myCommand
-实例2：每小时的第3和第15分钟执行
-3,15 * * * * myCommand
-实例3：在上午8点到11点的第3和第15分钟执行
-3,15 8-11 * * * myCommand
-实例4：每隔两天的上午8点到11点的第3和第15分钟执行
-3,15 8-11 */2  *  * myCommand
-#/etc/cron.hourly，每个小时执行一次的脚本
+# cron：笔记已迁移
+
+请阅读 [cron](docs/services/cron.md)。
+
+本地路径：docs/services/cron.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/services/cron.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

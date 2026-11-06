@@ -1,1 +1,8 @@
-watch命令主要用于定时刷新其他命令，默认2s一次
+# watch：笔记已迁移
+
+请阅读 [watch](docs/services/watch.md)。
+
+本地路径：docs/services/watch.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/services/watch.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

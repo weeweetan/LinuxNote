@@ -1,2 +1,8 @@
-#用于将内存地址转换成函数行，地址可用堆栈地址减去程序起始地址，程序起始地址可以通过/proc/pid/maps查看
-addr2line -e binary 地址
+# addr2line：笔记已迁移
+
+请阅读 [addr2line](docs/debugging/addr2line.md)。
+
+本地路径：docs/debugging/addr2line.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/debugging/addr2line.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。

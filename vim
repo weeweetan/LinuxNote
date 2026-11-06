@@ -1,10 +1,8 @@
-#按ctrl+s卡住，按ctrl+q退出
-#?反向搜索
-#命令行模式:vsp 垂直分割屏幕打开文件
-#set scb，垂直分屏同时滚动
-#查看匹配字符串有多少
-:%s/str/ng
-#行首插入#例如 :1,5 norm 0i# 将在第 1 到第 5 行的行首插入 #。
-:lineno norm 0i#
-#删除以#开头的字符
-:s/^#//g
+# vim：笔记已迁移
+
+请阅读 [vim](docs/files/vim.md)。
+
+本地路径：docs/files/vim.md
+在线阅读：https://github.com/weeweetan/LinuxNote/blob/master/docs/files/vim.md
+
+此文件保留旧入口；内容与示例在新的 Markdown 笔记中维护。
