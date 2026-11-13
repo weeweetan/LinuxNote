@@ -145,15 +145,24 @@ class ScriptTests(unittest.TestCase):
         self.assertIn('192.0.2.2 NO_REPLY', result.stdout)
 
     def setup_tls(self):
+        self.env['TLS_FINISHED'] = str(self.work / 'tls-client-finished')
         self.fake('timeout', 'import subprocess, sys\nsys.exit(subprocess.call(sys.argv[2:]))\n')
-        self.fake('openssl', '''import json, os, sys
+        self.fake('openssl', '''import json, os, pathlib, sys
 with open(os.environ['TEST_LOG'], 'a') as log:
     log.write(json.dumps(sys.argv[1:]) + '\\n')
 if sys.argv[1] == 's_client':
     print('mock certificate')
+    if os.environ.get('TLS_LARGE_OUTPUT'):
+        sys.stdout.write('x' * (4 * 1024 * 1024))
+    sys.stdout.flush()
+    pathlib.Path(os.environ['TLS_FINISHED']).write_text('complete')
     sys.exit(int(os.environ.get('TLS_FAILURE', '0')))
-sys.stdin.read()
+if os.environ.get('X509_PREFIX_ONLY'):
+    sys.stdin.read(1)
+else:
+    sys.stdin.read()
 print('sha256 Fingerprint=MOCK')
+sys.exit(int(os.environ.get('X509_FAILURE', '0')))
 ''')
 
     def test_tls_sets_sni_verification_and_sha256(self):
@@ -170,6 +179,30 @@ print('sha256 Fingerprint=MOCK')
         self.setup_tls()
         self.env['TLS_FAILURE'] = '1'
         self.run_script('inspect-tls.sh', 'example.com', expected=1)
+
+    def test_tls_drains_large_output_after_early_certificate_parser_exit(self):
+        self.setup_tls()
+        self.env.update(TLS_LARGE_OUTPUT='1', X509_PREFIX_ONLY='1')
+        result = self.run_script('inspect-tls.sh', 'example.com')
+        self.assertIn('Fingerprint=MOCK', result.stdout)
+        self.assertTrue(Path(self.env['TLS_FINISHED']).exists())
+
+    def test_tls_verification_failure_survives_draining_large_output(self):
+        self.setup_tls()
+        self.env.update(TLS_LARGE_OUTPUT='1', X509_PREFIX_ONLY='1', TLS_FAILURE='7')
+        self.run_script('inspect-tls.sh', 'example.com', expected=7)
+        self.assertTrue(Path(self.env['TLS_FINISHED']).exists())
+
+    def test_tls_parser_failure_is_preserved_while_draining_large_output(self):
+        self.setup_tls()
+        self.env.update(TLS_LARGE_OUTPUT='1', X509_PREFIX_ONLY='1', X509_FAILURE='9')
+        self.run_script('inspect-tls.sh', 'example.com', expected=9)
+        self.assertTrue(Path(self.env['TLS_FINISHED']).exists())
+
+    def test_tls_drain_failure_returns_nonzero(self):
+        self.setup_tls()
+        self.fake('cat', 'import sys\nsys.exit(8)\n')
+        self.run_script('inspect-tls.sh', 'example.com', expected=8)
 
     def setup_wget(self):
         self.fake('wget', '''import json, os, pathlib, signal, sys, time
