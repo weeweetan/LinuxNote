@@ -116,23 +116,52 @@ class ScriptTests(unittest.TestCase):
             self.assertEqual(result.stdout, '')
 
     def test_exact_ports_ipv4_ipv6_and_no_shared_temporary_file(self):
-        self.fake('ss', "print('LISTEN 0 128 0.0.0.0:8080 0.0.0.0:*')\nprint('LISTEN 0 128 [::]:22 [::]:*')\n")
+        self.fake('ss', "print('LISTEN 0 128 0.0.0.0:8080 0.0.0.0:80')\n"
+                        "print('LISTEN 0 128 [::]:22 [::]:*')\n"
+                        "print('LISTEN 0 128 [::ffff:192.0.2.10]:25 [::]:*')\n"
+                        "print('LISTEN 0 128 0.0.0.0:2100 0.0.0.0:*')\n")
         output = self.run_script('check-listening-ports.sh').stdout
-        self.assertIn('TCP/80 is not listening\n', output)
-        self.assertIn('TCP/22 is listening\n', output)
+        self.assertEqual(output, 'TCP/80 is not listening\nTCP/22 is listening\n'
+                                 'TCP/25 is listening\nTCP/21 is not listening\n')
         self.assertEqual(set(p.name for p in self.work.iterdir()), {'bin'})
+
+    def test_empty_socket_snapshot_reports_no_listeners(self):
+        self.fake('ss', 'pass\n')
+        output = self.run_script('check-listening-ports.sh').stdout
+        self.assertEqual(output, ''.join(f'TCP/{port} is not listening\n' for port in [80, 22, 25, 21]))
+
+    def test_socket_parser_errors_discard_partial_reports(self):
+        self.fake('ss', "print('LISTEN 0 128 0.0.0.0:80 0.0.0.0:*')\n")
+        for status in [1, 2, 127]:
+            with self.subTest(status=status):
+                self.fake('awk', 'import sys\nprint("TCP/80 is listening")\n'
+                                 f'print("parser fixture failure", file=sys.stderr)\nsys.exit({status})\n')
+                result = self.run_script('check-listening-ports.sh', expected=1)
+                self.assertEqual(result.stdout, '')
+                self.assertIn('parser fixture failure', result.stderr)
+                self.assertIn('Failed to parse listening sockets.', result.stderr)
+
+    def test_missing_socket_parser_is_failure(self):
+        self.fake('ss', "print('LISTEN 0 128 0.0.0.0:80 0.0.0.0:*')\n")
+        self.env['PATH'] = str(self.bin)
+        result = self.run_script('check-listening-ports.sh', expected=1)
+        self.assertEqual(result.stdout, '')
+        self.assertIn('Failed to parse listening sockets.', result.stderr)
 
     def test_netstat_fallback(self):
         self.env['PATH'] = str(self.bin)
         (self.bin / 'awk').symlink_to(shutil.which('awk'))
-        self.fake('netstat', "print('tcp 0 0 0.0.0.0:80 0.0.0.0:* LISTEN')\nprint('tcp6 0 0 :::25 :::* LISTEN')\n")
+        self.fake('netstat', "print('tcp 0 0 0.0.0.0:80 0.0.0.0:* LISTEN')\n"
+                             "print('tcp6 0 0 :::25 :::* LISTEN')\n"
+                             "print('tcp 0 0 127.0.0.1:21 0.0.0.0:* LISTEN')\n")
         output = self.run_script('check-listening-ports.sh').stdout
-        self.assertIn('TCP/80 is listening\n', output)
-        self.assertIn('TCP/25 is listening\n', output)
+        self.assertEqual(output, 'TCP/80 is listening\nTCP/22 is not listening\n'
+                                 'TCP/25 is listening\nTCP/21 is listening\n')
 
     def test_socket_command_failure_propagates(self):
-        self.fake('ss', 'import sys\nsys.exit(1)\n')
-        self.run_script('check-listening-ports.sh', expected=1)
+        self.fake('ss', "import sys\nprint('LISTEN 0 128 0.0.0.0:80 0.0.0.0:*')\nsys.exit(1)\n")
+        result = self.run_script('check-listening-ports.sh', expected=1)
+        self.assertEqual(result.stdout, '')
 
     def test_ping_requires_valid_explicit_target(self):
         for args in [(), ('256.0.0',), ('192.0.2', '0', '3'), ('192.0.2', '3', '2')]:

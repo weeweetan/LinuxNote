@@ -8,13 +8,17 @@ else
     printf 'Required command: ss (iproute2) or netstat (net-tools).\n' >&2
     exit 1
 fi
-for port in 80 22 25 21; do
-    if awk -v wanted="$port" '
-        { n = split($4, parts, ":"); if (parts[n] == wanted) found = 1 }
-        END { exit !found }
-    ' <<< "$sockets"; then
-        printf 'TCP/%d is listening\n' "$port"
-    else
-        printf 'TCP/%d is not listening\n' "$port"
-    fi
-done
+# Absence is data, not an awk exit status: a parser failure must not look like
+# four closed ports. Publish the report only after the whole parse succeeds.
+report=$(awk '
+    { n = split($4, parts, ":"); listening[parts[n]] = 1 }
+    END {
+        count = split("80 22 25 21", ports, " ")
+        for (i = 1; i <= count; i++)
+            printf "TCP/%d is %slistening\n", ports[i], (ports[i] in listening) ? "" : "not "
+    }
+' <<< "$sockets") || {
+    printf 'Failed to parse listening sockets.\n' >&2
+    exit 1
+}
+printf '%s\n' "$report"
