@@ -27,13 +27,15 @@
 
 | 脚本 | 示例 | 行为与依赖 |
 | --- | --- | --- |
-| [check-listening-ports.sh](check-listening-ports.sh) | `bash bash-shell/check-listening-ports.sh` | 使用 ss，缺少时回退 netstat；精确检查 TCP 80/22/25/21 的监听，不创建共享临时文件 |
+| [check-listening-ports.sh](check-listening-ports.sh) | `bash bash-shell/check-listening-ports.sh` | 使用 ss，缺少时回退 netstat；需要 awk，精确检查 TCP 80/22/25/21 的监听，不创建共享临时文件 |
 | [ping-range.sh](ping-range.sh) | `bash bash-shell/ping-range.sh 192.0.2 1 3` | Linux ping；显式指定 /24 前缀，范围 1–254；无回复标为 NO_REPLY，不断言宕机 |
 | [parallel-wget.sh](parallel-wget.sh) | `bash bash-shell/parallel-wget.sh https://example.com/ 4 2 ./downloads` | wget；下载次数 1–1000，并发 1–16，每次建独立输出目录，每进程限速 100k；任一失败返回非零 |
 | [inspect-tls.sh](inspect-tls.sh) | `bash bash-shell/inspect-tls.sh example.com 443` | OpenSSL 1.1.1+、GNU timeout、cat；15 秒连接时限，校验证书与目标名，输出 SHA-256 指纹；可接受 IPv4 |
 | [generate-ifcfg.sh](generate-ifcfg.sh) | `bash bash-shell/generate-ifcfg.sh eth0 02:00:00:00:00:01 192.0.2.10 255.255.255.0` | 仅输出旧式 ifcfg 配置，不写 /etc；检查地址与掩码。适用于学习旧 network-scripts 格式 |
 
 `192.0.2.0/24` 为文档示例网段；运行前替换为自己管理的实验地址。`generate-ifcfg.sh` 不负责启用接口、设置路由或 DNS；现代系统请使用对应网络管理器的配置方式。输出到文件可显式重定向到 `./ifcfg-example`，先阅读再决定如何应用。
+
+`check-listening-ports.sh` 在查询和解析都成功后才输出四个端口的状态，顺序固定为 80、22、25、21；空的监听列表仍是成功结果。查询或解析失败时返回 1，stdout 不输出端口结论；缺少 awk 或解析器报错时，会向 stderr 提示解析失败，避免把检查失败误判成没有监听。
 
 ## TLS 输出与管道状态
 
@@ -47,4 +49,4 @@
 
 ## 验证
 
-在仓库根目录运行 `python3 tools/check.py --shellcheck`。测试覆盖输入校验、文件名空格、EOF、端口误匹配、网络命令参数、下载失败与并发限制，以及 TLS 解析器提前退出后的大输出读取与各阶段失败。Linux 上会实际运行日期练习；网络、TLS 和下载使用替身命令。
+在仓库根目录运行 `python3 tools/check.py --shellcheck`。测试覆盖输入校验、文件名空格、EOF、端口误匹配、空监听列表和查询/解析失败、网络命令参数、下载失败与并发限制，以及 TLS 解析器提前退出后的大输出读取与各阶段失败。Linux 上会实际运行日期练习；网络、TLS 和下载使用替身命令。
